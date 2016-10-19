@@ -9,6 +9,7 @@ require_once 'inc/dbconfig.inc.php';
 
 // zur DB verbinden
 $db = getDbConnect($dbSettings['connect']);
+$table = 'kunden';
 
 // Initialisierung
 $isSent = false;
@@ -67,7 +68,7 @@ if ($isSent) {
 <body>
 <div class="wrapper">
 	<header class="main-header">
-		<h1>Kunden Verwaltung</h1>
+		<h1><?php echo $dbSettings['tables'][$table]['name'] ?> Verwaltung</h1>
 	</header>
 	<main>
 <?php

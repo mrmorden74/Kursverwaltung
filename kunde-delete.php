@@ -1,9 +1,9 @@
 <?php
 if (isset($_GET['del']) && isset($_GET['ok'])) {
-    $sql = 'DELETE FROM kunden WHERE kunden_id = '.$_GET['del'].';';
+    $sql = 'DELETE FROM '.$table.' WHERE '.$table.'_id = '.$_GET['del'].';';
     $res = $db->query($sql);
     if ($res) {
-        echo 'Kunde wurde gelöscht';
+        echo 'Datensatz wurde gelöscht';
         header('location:index.php');
         exit;
     } elseif ($db->error != '') {
@@ -11,42 +11,29 @@ if (isset($_GET['del']) && isset($_GET['ok'])) {
         echo $errorMsg;
 	}
 } else {
-    $sql = 'SELECT * FROM kunden WHERE kunden_id = '.$_GET['del'].';';
+    $sql = 'SELECT * FROM '.$table.' WHERE '.$table.'_id = '.$_GET['del'].';';
     $res = $db->query($sql);
     // var_dump($res);
 
     //Prüfen ob die Query Einträge geliefert hat
-    if ($res->num_rows) {
-
+    if ($res->num_rows === 1) {
         echo '<table class="pure-table pure-table-striped">';
-        //Über die Einträge iterieren
-        $rowNr = 0;
-        while ($line = $res->fetch_assoc()) {
-            // var_dump($line);
-            // echo '<br>', $line['Tables_in_classicmodels'];
 
+        // $rowNr = 0;
+        // while ($line = $res->fetch_assoc()) {
+          $line = $res->fetch_assoc();
     // Überschrift
-
-            if ($rowNr === 0) {
-                // echo '<thead><tr>'	;
-                foreach($line as $key => $val) {
-                    // echo '<th>',$key,'</th>';
-                }
-                // echo '<th> </th><th> </th></tr></thead><tbody>';	
-                $rowNr = 1;
-            }	
     // Datenzeilen erzeugen
-                echo '<tbody>'	;
+                echo '<tbody>';
             foreach($line as $key => $val) {
-                echo '<tr><td>',$key,'</td>';	
-                echo '<td>',$val,'</td></tr>';	
+                echo '<tr><td>',dbToLabelName($key, $formConfig),'</td>';	
+                echo '<td>',$val,'</td></tr>';
             }
-        }
         echo '</tbody></table>';
         echo '<p><a href="index.php?del=', $_GET['del'], '&ok=1">LÖSCHEN</a></p>';
     // Wenn keine EInträge vorhanden
     } else {
-        echo 'keine Daten gefunden';
+        echo 'Es wurde kein Datensatz zum Löschen gefunden';
     }
 }
 	echo '<p><br><br><br><a href="index.php">Zurück zur Übersicht</a></p>';

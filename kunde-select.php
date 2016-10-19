@@ -1,5 +1,5 @@
 <?php
-$sql = 'SELECT * FROM kunden;';
+$sql = 'SELECT * FROM '.$table.';';
 $res = $db->query($sql);
 // var_dump($res);
 
@@ -29,10 +29,10 @@ if ($res->num_rows) {
 			echo '<td>',$val,'</td>';
 		}
 	echo '<td>';	
-	echo '<a href="index.php?edit=', $line['kunden_id'], '">edit</a>';
+	echo '<a href="index.php?edit=', $line[''.$table.'_id'], '">edit</a>';
 	echo '</td>';	
 	echo '<td>';	
-	echo '<a href="index.php?del=', $line['kunden_id'], '">del</a>';
+	echo '<a href="index.php?del=', $line[''.$table.'_id'], '">del</a>';
 	echo '</td>';	
 	echo '</tr>';	
 	}
@@ -40,6 +40,6 @@ if ($res->num_rows) {
 } else {
 	echo 'keine Daten gefunden';
 }
-	echo '<p><a href="index.php?add=1">Kunden hinzufügen</a></p>';
-	echo '<p><a href="../kunden-nibble2/index.php">Kunden hinzufügen (Nibble 2 Form)</a></p>';
+	echo '<p><a href="index.php?add=1">'.$dbSettings['tables'][$table]['name'].' hinzufügen</a></p>';
+	echo '<p><a href="../kunden-nibble2/index.php">'.$dbSettings['tables'][$table]['name'].' hinzufügen (Nibble 2 Form)</a></p>';
 ?>
