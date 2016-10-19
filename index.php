@@ -2,10 +2,13 @@
 // declare(strict_types=1); // php7 Muss die erste Anweisung in einer Datei sein
 // includes
 require_once 'inc/utilities.inc.php';
-require_once 'inc/formconfig.inc.php';
 require_once 'inc/db-connect.inc.php';
+
+require_once 'inc/formconfig.inc.php';
+require_once 'inc/dbconfig.inc.php';
+
 // zur DB verbinden
-$db = connectDB('root', '', 'localhost', 'kurse');
+$db = getDbConnect($dbSettings['connect']);
 
 // Initialisierung
 $isSent = false;

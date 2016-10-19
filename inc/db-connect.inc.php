@@ -1,10 +1,20 @@
 <?php
 /** 
+*	Holt sich die mySqli Zugangsdaten aus einem Array und liefert es an connectDb()
+*	@param $connect Array mit 'user' 'pw' 'host' 'db'
+*	@return Object mysqli
+*/
+function getDbConnect($connect) {
+	return connectDB($connect['user'], $connect['pw'], $connect['host'], $connect['db']);
+}
+
+/** 
 *	Verbindet sich zu mysql und gibt ein mysqli Objekt zurück
 *	@param $user string 	Username
-*	@param $pw string 		Username
-*	@param $host string 	Username
-*	@param $db string 		Username
+*	@param $pw string 		Password
+*	@param $host string 	Host
+*	@param $db string 		Database
+*	@return Object mysqli
 *
 */
 function connectDB(string $user, string $pw, string $host, string $db) : mysqli {
