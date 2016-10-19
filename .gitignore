@@ -301,3 +301,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+.vscode/settings.json
+.vscode/launch.json
+Doxyfile.txt
