@@ -61,6 +61,10 @@ function makeFormFields($conf, $errors, $type) {
 			if (isset($errors[$fieldName])) {
 				$formFields .= ' class="error"'; // Formatiert den Text im EIngabefeld nach Fehler rot
 			}
+			if (isset($fieldConf['preFix'])){
+				$formFields .= ' class="prefix"'; // Formatiert den Textfeld kleiner
+			}
+
 			if (isset($fieldConf['edit']) && $type == 'update' && !$fieldConf['edit']) {
 				$formFields .= ' readonly'; // Formatiert den Text im EIngabefeld nach Fehler rot
 			}

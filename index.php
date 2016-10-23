@@ -52,22 +52,24 @@ if ($isSent) {
 	// dumpPre($formErrors);
 }
 ?>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-	<meta charset="UTF-8">
-	<title>Registrierung</title>
-	<link rel="stylesheet" href="css/pure-min.css">
-	<link rel="stylesheet" href="css/layout.css">
-	<script src="inc/myScript.js"></script>
-</head>
-<body>
-<div class="wrapper">
-	<header class="main-header">
-		<h1>Kunden Verwaltung</h1>
-	</header>
-	<main>
-<?php
+	<!DOCTYPE html>
+	<html lang="de">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Registrierung</title>
+		<link rel="stylesheet" href="css/pure-min.css">
+		<link rel="stylesheet" href="css/layout.css">
+		<script src="inc/myScript.js"></script>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<header class="main-header">
+				<h1>Kunden Verwaltung</h1>
+			</header>
+			<main>
+				<?php
 if ($isAdded) {
  echo '<p>Datensatz wurde erfolgreich hinzugefügt.</p>' ;
 }
@@ -88,10 +90,11 @@ if (isset($_GET['edit'])) {
 	include 'kunde-update.php';
 	}	
 ?>
-</main>
-	<footer>
-	<a href="html/index.html">Projektdokumentation per Doxygen</a>
-	</footer>
-</div>
-</body>
-</html>
+			</main>
+			<footer>
+				<a href="html/index.html">Projektdokumentation per Doxygen</a>
+			</footer>
+		</div>
+	</body>
+
+	</html>
