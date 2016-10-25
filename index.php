@@ -1,11 +1,15 @@
 <?php
 // declare(strict_types=1); // php7 Muss die erste Anweisung in einer Datei sein
+error_reporting(E_ALL);
+ini_set('display_errors', 'off');
+ini_set('error_log', 'logs/phperror.log');
+
 // includes
 require_once 'inc/utilities.inc.php';
 require_once 'inc/formconfig.inc.php';
 require_once 'inc/db-connect.inc.php';
 // zur DB verbinden
-$db = connectDB('root', '', 'localhost', 'kurse');
+$db = connectDB('root', 'x', 'localhost', 'kurse');
 
 // Initialisierung
 $isSent = false;
