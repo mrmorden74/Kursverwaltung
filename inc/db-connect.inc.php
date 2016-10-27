@@ -17,13 +17,15 @@ function getDbConnect($connect) {
 *	@return Object mysqli
 *
 */
-function connectDB(string $user, string $pw, string $host, string $db) : mysqli {
-	// echo 'connect: ', $user,'-', $pw,'-', $host,'-', $db;
+function connectDB(string $user, string $pw, string $host, string $db)  {
+	// connect to db
 	$mysqli = new mysqli($host, $user, $pw, $db);
-	// var_dump($mysqli->connect_errno);
+	// Meldung bei Verbindungsfehler
 	if ($mysqli->connect_errno) {
-		// TODO: in Log-FIle schreiben
-		echo 'Fehler beim Verbinden zur Datenbank.: ', $mysqli->connect_errno;
+		// TODO: Function erstellen?
+		error_log('EIGENE FEHLERMELDUNG'. $mysqli->connect_errno);
+		echo '<h1>Fehler beim Verbinden zur Datenbank!</h1>';
+		exit;
 	}
 	// damit die Daten auch in phpmyadmin korrekt eingetragen werden
 	// mysqli verwendet nicht die Kollation der Datenbank, sondern italian
