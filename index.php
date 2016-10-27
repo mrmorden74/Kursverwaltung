@@ -6,10 +6,15 @@ ini_set('display_errors', 'off');
 ini_set('error_log', 'logs/phperror.log');
 // includes
 require_once 'inc/utilities.inc.php';
-require_once 'inc/formconfig.inc.php';
 require_once 'inc/db-connect.inc.php';
+
+require_once 'inc/formconfig.inc.php';
+require_once 'inc/dbconfig.inc.php';
+
 // zur DB verbinden
-$db = connectDB('root', 'x', 'localhost', 'kurse');
+$db = getDbConnect($dbSettings['connect']);
+$table = 'kunden';
+
 // Initialisierung
 $isSent = false;
 $isAdded = false;
@@ -53,6 +58,24 @@ if ($isSent) {
     // dumpPre($formErrors);
 }
 ?>
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<title>Registrierung</title>
+	<link rel="stylesheet" href="css/pure-min.css">
+	<link rel="stylesheet" href="css/layout.css">
+	<script src="inc/myScript.js"></script>
+</head>
+<body>
+<div class="wrapper">
+	<header class="main-header">
+		<h1><?php echo $dbSettings['tables'][$table]['name'] ?> Verwaltung</h1>
+	</header>
+	<main>
+<?php
+=======
 	<!DOCTYPE html>
 	<html lang="de">
 
@@ -71,6 +94,7 @@ if ($isSent) {
 			</header>
 			<main>
 				<?php 
+>>>>>>> master
 if ($isAdded) {
     echo '<p>Datensatz wurde erfolgreich hinzugefügt.</p>';
 }
