@@ -58,7 +58,7 @@ if ($isSent) {
     // dumpPre($formErrors);
 }
 ?>
-<<<<<<< HEAD
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -75,26 +75,7 @@ if ($isSent) {
 	</header>
 	<main>
 <?php
-=======
-	<!DOCTYPE html>
-	<html lang="de">
 
-	<head>
-		<meta charset="UTF-8">
-		<title>Registrierung</title>
-		<link rel="stylesheet" href="css/pure-min.css">
-		<link rel="stylesheet" href="css/layout.css">
-		<script src="inc/myScript.js"></script>
-	</head>
-
-	<body>
-		<div class="wrapper">
-			<header class="main-header">
-				<h1>Kunden Verwaltung</h1>
-			</header>
-			<main>
-				<?php 
->>>>>>> master
 if ($isAdded) {
     echo '<p>Datensatz wurde erfolgreich hinzugefügt.</p>';
 }
